@@ -1,0 +1,40 @@
+﻿<Window x:Class="WPFPasswordManager.Views.UserControls.RemoveInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFPasswordManager.Views.UserControls"
+        xmlns:UserControls="clr-namespace:WPFPasswordManager.Views.UserControls"
+        mc:Ignorable="d"
+        WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"  ResizeMode="NoResize" Title="RemoveInfoWindow" Height="200" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Title bar -->
+        <UserControls:TitleBar Grid.Row="0"/>
+        <Label HorizontalAlignment="Left" Width="110" Content="Remove Info:" Foreground="White" FontSize="16" Margin="30,0,0,0"/>
+
+        <!-- Main Window -->
+        <Grid Grid.Row="1" Background="#ededed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Input, label and button -->
+            <TextBox x:Name="IndexBox" Grid.Row="0" Height="35" Width="140" VerticalContentAlignment="Center" FontSize="20" FontWeight="Light" Background="Transparent" TextChanged="IndexBox_TextChanged"  VerticalAlignment="Bottom"/>
+            <TextBlock x:Name="IndexBlock" Grid.Row="0" Height="25" Width="140" FontSize="20" FontWeight="Light" Text="Row" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="DarkGray" Margin="5,0,0,5" Panel.ZIndex="-1"/>
+            <Label Grid.Row="1" Content="Enter subject line info" FontSize="20" VerticalContentAlignment="Top" HorizontalAlignment="Center"/>
+
+            <Button Grid.Row="2" Height="30" Width="100" Background="#FF319CFF" Foreground="White" Content="Enter" VerticalAlignment="Bottom" Click="Button_Index_Click"/>
+
+            <!-- Disclaimer -->
+            <Label x:Name="Disclaimer" Grid.Row="3" Content="Incorrect Password Entered" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red" Visibility="Hidden"/>
+        </Grid>
+    </Grid>
+</Window>

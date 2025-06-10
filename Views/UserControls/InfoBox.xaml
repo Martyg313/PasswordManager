@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="WPFPasswordManager.Views.UserControls.InfoBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFPasswordManager.Views.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="533">
+    <!-- Example info box -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Top bar -->
+        <Rectangle Grid.Row="0" Fill="#383838" StrokeThickness="1" Stroke="White"/>
+        <Label x:Name="SubjectBoxText" Grid.Row="0" Content="Hello:" Foreground="White" FontSize="17" HorizontalAlignment="Left"/>
+
+        <!-- Bottom bar -->
+        <Rectangle Grid.Row="1" Fill="#c2c2c2" StrokeThickness="1" Stroke="White"/>
+        <TextBlock x:Name="infoBoxText" Grid.Row="1" Text="My name is Martin" TextWrapping="Wrap" Margin="5"/>
+
+    </Grid>
+</UserControl>

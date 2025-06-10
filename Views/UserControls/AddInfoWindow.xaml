@@ -1,0 +1,48 @@
+﻿<Window x:Class="WPFPasswordManager.Views.UserControls.AddInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:UserControls="clr-namespace:WPFPasswordManager.Views.UserControls"
+        xmlns:local="clr-namespace:WPFPasswordManager.Views.UserControls"
+        mc:Ignorable="d"
+        WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="NoResize" Title="AddInfoWindow" Height="270" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Title bar -->
+        <UserControls:TitleBar Grid.Row="0"/>
+        <Label HorizontalAlignment="Left" Width="80" Content="Add Info:" Foreground="White" FontSize="16" Margin="30,0,0,0"/>
+
+        <!-- Main window -->
+        <Grid Grid.Row="1" Background="#ededed">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="37"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <!-- First inputs -->
+            <TextBox x:Name="subjectBox" Grid.Row="0" Height="35" Width="200" VerticalContentAlignment="Center" FontSize="20" FontWeight="Light" Background="Transparent" TextChanged="TextBox_Subject_TextChanged" VerticalAlignment="Bottom"/>
+            <TextBlock x:Name="subjectBlock" Grid.Row="0" Height="25" Width="200" FontSize="20" FontWeight="Light" Text="Subject" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="DarkGray" Margin="5,0,0,5" Panel.ZIndex="-1"/>
+            <Label Grid.Row="1" Content="Enter subject line info" FontSize="20" VerticalContentAlignment="Top" HorizontalAlignment="Center"/>
+
+            <!-- Second inputs -->
+            <TextBox x:Name="infoBox" Grid.Row="3" Height="35" Width="300" VerticalContentAlignment="Center" FontSize="20" FontWeight="Light" Background="Transparent" TextChanged="TextBox_Info_TextChanged" VerticalAlignment="Bottom"/>
+            <TextBlock x:Name="infoBlock" Grid.Row="3" Height="25" Width="300" FontSize="20" FontWeight="Light" Text="Information" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="DarkGray" Margin="5,0,0,5" Panel.ZIndex="-1"/>
+            <Label Grid.Row="4" Content="Enter the desired info to be encrypted" FontSize="20" VerticalContentAlignment="Top" HorizontalAlignment="Center"/>
+
+            <!-- Enter button and alert -->
+            <Button Grid.Row="5" Height="30" Width="100" Background="#FF319CFF" Foreground="White" Content="Enter" VerticalAlignment="Bottom" Click="Button_Enter_Click"/>
+        </Grid>
+    </Grid>
+</Window>

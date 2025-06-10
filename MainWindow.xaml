@@ -1,0 +1,71 @@
+﻿<Window x:Class="WPFPasswordManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFPasswordManager"
+        xmlns:UserControls="clr-namespace:WPFPasswordManager.Views.UserControls"
+        mc:Ignorable="d" 
+        WindowStyle="None" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="400" Width="600">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Custom title bar -->
+        <Rectangle Fill="#383838"/>
+        <Button Height="30" Width="30" HorizontalAlignment="Right" Background="Transparent" Foreground="White" Content="X" BorderBrush="Transparent" Click="Button_Close_Click"/>
+        <Image Height="26" Width="26" HorizontalAlignment="Left" Source="/icons/padlock.png" Margin="2"/>
+
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Custom Sidebar -->
+            <Grid Grid.Column="0">
+                <Rectangle Fill="#383838"/>
+                <StackPanel>
+                    <!-- Add info Button -->
+                    <Button Height="40" Width="40" Margin="5" Click="Button_Plus_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/icons/icons8-plus-64.png"/>
+                        </Button.Background>
+                    </Button>
+
+                    <!-- Delete info Button -->
+                    <Button Height="40" Width="40" Margin="5" Click="Button_Minus_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/icons/icons8-minus-90.png"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+
+                <!-- App info Button -->
+                <Button Height="40" Width="40" Margin="5" VerticalAlignment="Bottom" Click="Button_Info_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/icons/icons8-i-64.png"/>
+                    </Button.Background>
+                </Button>
+
+            </Grid>
+
+            <!-- Info Window -->
+            <Grid Grid.Column="1">
+                <ScrollViewer VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Disabled">
+                    <!-- Note that Scroll veiwer disables DragMove(); here -->
+                    <StackPanel x:Name="infoScreen">
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
