@@ -1,7 +1,8 @@
 <h1>Password Manager (WPF)</h1>
 
 <h2>Description</h2>
-An implementation of "Snake" based on .NET Winforms. The snake operates on a linked list allowing for the snake to dynamically grow. All game operations pass through the control timer which constantly updates the player's snake and map. This version contains also additional features allowing the player to: pause game, modify number of apples, adjust segment multiplier, and change snake length. 
+A password manager application built on .Net WPF for simple data encryption. Users may catalogue and encrpyt any private infomation to disk using the straight forward user interface. 
+This password manager uses AES-256 encryption and PBKDF2-Sha512 key derivations from C#'s cryptogrphic APIs.
 <br/>
 
 <h2>Languages</h2>
