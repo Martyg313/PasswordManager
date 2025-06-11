@@ -1,8 +1,4 @@
-﻿
-using System.Configuration;
-using System.Data;
-using System.Windows;
-
+﻿using System.Windows;
 
 namespace WPFPasswordManager
 {
@@ -14,7 +10,7 @@ namespace WPFPasswordManager
         protected Window windowToShow = null!;
 
         /**
-         * Detrmines starting window based on vault file existence
+         * Determines starting window based on vault file existence
          */
         protected override void OnStartup(StartupEventArgs e)
         {

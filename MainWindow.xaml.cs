@@ -1,15 +1,6 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPFPasswordManager.Views.UserControls;
-//using WPFPasswordManager.Views;
 
 namespace WPFPasswordManager
 {
@@ -24,22 +15,6 @@ namespace WPFPasswordManager
 
             // Update ui from data
             UpdateDisplay();
-        }
-
-        /**
-         * Updates the gui of the main window for all entries
-         */
-        private void UpdateDisplay()
-        {
-            List<string> mydata = Encryption.DecryptFile();
-            for (int i = 0; i < mydata.Count / 2; i++)
-            {
-                InfoBox newInfo = new InfoBox();
-                newInfo.SubjectBoxText.Content = mydata[i * 2];     // Applies title
-                newInfo.infoBoxText.Text = mydata[i * 2 + 1];       // Applies info
-
-                infoScreen.Children.Add(newInfo);
-            }
         }
 
         /**
@@ -104,6 +79,22 @@ namespace WPFPasswordManager
         {
             InfoWindow iw = new InfoWindow();
             iw.ShowDialog();
+        }
+
+        /**
+        * Updates the gui of the main window for all entries
+        */
+        private void UpdateDisplay()
+        {
+            List<string> myData = Encryption.DecryptFile();
+            for (int i = 0; i < myData.Count / 2; i++)
+            {
+                InfoBox newInfo = new InfoBox();
+                newInfo.SubjectBoxText.Content = myData[i * 2];     // Applies title
+                newInfo.infoBoxText.Text = myData[i * 2 + 1];       // Applies info
+
+                infoScreen.Children.Add(newInfo);
+            }
         }
     }
 }

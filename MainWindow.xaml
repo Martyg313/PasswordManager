@@ -9,7 +9,7 @@
         WindowStyle="None" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         ResizeMode="NoResize"
-        Title="MainWindow" Height="400" Width="600">
+        Title="Menu" Height="400" Width="600">
 
     <Grid>
         <Grid.RowDefinitions>

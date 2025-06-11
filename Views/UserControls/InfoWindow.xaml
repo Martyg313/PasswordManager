@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPFPasswordManager.Views.UserControls"
         xmlns:UserControls="clr-namespace:WPFPasswordManager.Views.UserControls"
         mc:Ignorable="d"
-        WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"  ResizeMode="NoResize" Title="InfoWindow" Height="320" Width="420">
+        WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"  ResizeMode="NoResize" Title="Directions" Height="320" Width="420">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -55,7 +55,7 @@
                 <!-- Third Row -->
                 <Label Grid.Column="0" Width="100" Content="Disclaimer:" FontSize="12" Foreground="Red"/>
                 <TextBlock Grid.Column="1" FontSize="12" Margin="5" TextWrapping="Wrap" 
-                           Text="This app is designed for data encryption given a user's master password. There is not revcovery process, that is; being unable to enter your password means you cannot view your past encrypted data. Although AES-256 encryption and PBKDF2-SHA512 key derivation are implemented, it is possible for an attacker to use pattern analysis (due to IV resuse) or memory dumps which could allow decryption of the data. Note that the encrypted data in EncryptedData.txt is not immune to being modified." />
+                           Text="This app is designed for data encryption given a user's master password. There is no recovery process, that is; being unable to enter your password means you cannot view your past encrypted data. Although AES-256 encryption and PBKDF2-SHA512 key derivation are implemented, an attacker can use pattern analysis (due to IV reuse) or memory dumps which could allow decryption of the data. Note that the encrypted data in EncryptedData.txt is not immune to being modified." />
 
                 <Label Grid.Column="1" Content="Devolped by Martin Golec" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontStyle="Italic" FontFamily="Comic Sans MS" FontSize="10"/>
             </Grid>

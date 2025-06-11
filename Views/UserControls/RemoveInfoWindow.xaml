@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPFPasswordManager.Views.UserControls"
         xmlns:UserControls="clr-namespace:WPFPasswordManager.Views.UserControls"
         mc:Ignorable="d"
-        WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"  ResizeMode="NoResize" Title="RemoveInfoWindow" Height="200" Width="300">
+        WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"  ResizeMode="NoResize" Title="Remove Entry" Height="200" Width="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Security.Cryptography;
-using System.Drawing;
-using System.IO;
-using System.Diagnostics;
+using System.Text;
 
 namespace WPFPasswordManager
 {
@@ -18,12 +12,12 @@ namespace WPFPasswordManager
 
         static private byte[] hKey = null!;                                      // Key
 
-        // All Updated from KeyFileMananger.ReadFromFile(); if encrypted file exists
+        // All Updated from KeyFileManager.ReadFromFile(); if encrypted file exists
         static public byte[] passwordSalt = null!;
         static public byte[] passwordIV = null!;    
-
-        static public List<byte[]> multiEncryptedData = new List<byte[]>();     // Encrypted data
-        static public List<int> chunkLengths = new List<int>();                 // Store original lengths of data in byte format
+        static public byte[] EncryptedTest = null!;                              // Test for decryption
+        static public List<byte[]> multiEncryptedData = new List<byte[]>();      // Encrypted data
+        static public List<int> chunkLengths = new List<int>();                  // Store original lengths of data in byte format
 
         /**
          * Hashes key from the given password
@@ -51,6 +45,34 @@ namespace WPFPasswordManager
             hKey = Rfc2898DeriveBytes.Pbkdf2(byteNewPassword, passwordSalt, iterations, HashAlgorithmName.SHA512, keySize);
         }
 
+        /**
+         * Encrypt Test for AES-CBC key verification
+         */
+        public static byte[] EncryptTest()
+        {
+            using (Aes aes = Aes.Create())
+            {
+                byte[] testData = Encoding.UTF8.GetBytes("PASSWORD_VALIDATION");
+
+                aes.Key = hKey;
+                aes.IV = passwordIV;
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (ICryptoTransform encryptor = aes.CreateEncryptor())
+                    {
+                        using (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+                        {
+                            cs.Write(testData, 0, testData.Length);
+                            cs.FlushFinalBlock();
+                        }
+                    }
+                    EncryptedTest = ms.ToArray();
+                    return ms.ToArray();
+                }
+            }
+        }
+      
         /**
          * Encrypts the user's entry to file
          */
@@ -111,7 +133,6 @@ namespace WPFPasswordManager
         /**
          * Decrypts and updates user entries from file
          */
-        // Returns decrypted data
         public static List<string> DecryptFile() 
         {
             List<string> data = new List<string>();
@@ -121,25 +142,56 @@ namespace WPFPasswordManager
                 aes.Key = hKey;
                 aes.IV = passwordIV;
 
-                for (int i = 0; i < multiEncryptedData.Count; i++) 
-                { 
-                    using (MemoryStream memoryStream = new MemoryStream(multiEncryptedData[i]))
-                    {
-                        using (ICryptoTransform decryptor = aes.CreateDecryptor())
-                        {
-                            using (CryptoStream decryptStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
-                            {
-                                using (StreamReader streamReader = new StreamReader(decryptStream))
-                                {
-                                    data.Add(streamReader.ReadToEnd());
-                                }
-                            }
-                        }
+                DecryptTest(aes);     // Key check
 
-                    }
+                for (int i = 0; i < multiEncryptedData.Count; i++)
+                {
+                    data.Add(DecryptBytes(aes, multiEncryptedData[i]));
                 }
             }
             return data;
+        }
+
+        /**
+         * Helper method for decrypting user entries
+         */
+        private static string DecryptBytes(Aes aes, byte[] bytes)
+        {
+            using (MemoryStream memoryStream = new MemoryStream(bytes))
+            {
+                using (ICryptoTransform decryptor = aes.CreateDecryptor())
+                {
+                    using (CryptoStream decryptStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader streamReader = new StreamReader(decryptStream))
+                        {
+                            return streamReader.ReadToEnd();
+                        }
+                    }
+                }
+
+            }
+        }
+
+        /**
+         * Helper method for decrypting encrypted test for password validation
+         */
+        private static void DecryptTest(Aes aes)
+        {
+            using (MemoryStream memoryStream = new MemoryStream(EncryptedTest))
+            {
+                using (ICryptoTransform decryptor = aes.CreateDecryptor())
+                {
+                    using (CryptoStream decryptStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader streamReader = new StreamReader(decryptStream))
+                        {
+                            streamReader.ReadToEnd();
+                        }
+                    }
+                }
+
+            }
         }
 
         /**

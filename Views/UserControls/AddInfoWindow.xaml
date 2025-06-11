@@ -6,7 +6,7 @@
         xmlns:UserControls="clr-namespace:WPFPasswordManager.Views.UserControls"
         xmlns:local="clr-namespace:WPFPasswordManager.Views.UserControls"
         mc:Ignorable="d"
-        WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="NoResize" Title="AddInfoWindow" Height="270" Width="400">
+        WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="NoResize" Title="Add Entry" Height="270" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>

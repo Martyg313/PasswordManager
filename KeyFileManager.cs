@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using System.IO;
-using System.Diagnostics;
+﻿using System.IO;
 
 namespace WPFPasswordManager
 {
@@ -15,7 +8,7 @@ namespace WPFPasswordManager
         private static string fileFormat = ".txt";                                  // File format
         private static string fileNameFormat = fileName + fileFormat;               // File name format
 
-        private static string mainPath = Directory.GetCurrentDirectory();           // Current directoryof application
+        private static string mainPath = Directory.GetCurrentDirectory();           // Current directory of application
         private static string filePath = Path.Combine(mainPath, fileNameFormat);    // Path of txt vault file
 
         /**
@@ -23,29 +16,34 @@ namespace WPFPasswordManager
          */
         public static bool CheckFile()
         {
-            Debug.WriteLine($"Path: {filePath}");
-
             if (!File.Exists(filePath))
             {
-                Debug.WriteLine($"Created new EncryptedData file\n");
-                FileStream fs = File.Create(filePath); // Creates a filestream on creation which is immediately closed
-                fs.Close();
+                
                 return false;
             }
             else
             {
-                Debug.WriteLine($"EncryptedData file already exists\n");
                 return true;
             }
         }
 
         /**
-         * Writes encrypted data to valut file
+         * Creates vault file
+         */
+        public static void MakeFile()
+        {
+            FileStream fs = File.Create(filePath);
+            fs.Close();
+        }
+
+        /**
+         * Writes encrypted data to vault file
          */
         public static void WriteToFile() 
         {
             using (StreamWriter sw = new StreamWriter(filePath))
             {
+                sw.WriteLine("VALIDATION-" + Convert.ToBase64String(Encryption.EncryptTest()));
                 sw.WriteLine("SALT-" + Convert.ToBase64String(Encryption.passwordSalt));
                 sw.WriteLine("IV-" + Convert.ToBase64String(Encryption.passwordIV));
 
@@ -64,6 +62,8 @@ namespace WPFPasswordManager
             using (StreamReader sr = new StreamReader(filePath))
             {
                 string line = sr.ReadLine();
+                Encryption.EncryptedTest = Convert.FromBase64String(line.Substring(line.IndexOf('-') + 1));
+                line = sr.ReadLine();
                 Encryption.passwordSalt = Convert.FromBase64String(line.Substring(line.IndexOf('-') + 1));
                 line = sr.ReadLine();
                 Encryption.passwordIV = Convert.FromBase64String(line.Substring(line.IndexOf('-') + 1));

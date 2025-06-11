@@ -9,13 +9,13 @@
     <!-- Example info box -->
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="33"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <!-- Top bar -->
         <Rectangle Grid.Row="0" Fill="#383838" StrokeThickness="1" Stroke="White"/>
-        <Label x:Name="SubjectBoxText" Grid.Row="0" Content="Hello:" Foreground="White" FontSize="17" HorizontalAlignment="Left"/>
+        <Label x:Name="SubjectBoxText" Grid.Row="0" Content="Hello:" Foreground="White" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
         <!-- Bottom bar -->
         <Rectangle Grid.Row="1" Fill="#c2c2c2" StrokeThickness="1" Stroke="White"/>
