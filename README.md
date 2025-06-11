@@ -13,25 +13,25 @@ This password manager uses AES-256 encryption and PBKDF2-Sha512 key derivations 
 
 Password Creation:
 <br />
-![image](https://github.com/user-attachments/assets/b3e2cdf0-bf94-4761-bed2-33bd4a2a0969)
+![2025-06-1016-29-29-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/5aba6679-2c54-48b0-a7ce-bc915774d771)
 <br />
 
 Password login:
 <br />
-![SnakeGame2025-04-2520-27-34-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/4d490553-0ad8-414a-84e9-ff67033ee4ae)
+![2025-06-1019-27-29-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/00f87e1d-3c2c-4ce2-b1a5-84417e1f69c3)
 <br />
 
 Buttons and directions:
 <br />
-![SnakeGame2025-04-2520-33-54-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/1850bc83-1bea-4a0b-ab80-58c5c7e8ae1e)
+![2025-06-1019-35-02-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/ed0c38eb-4ebf-4e82-8ebd-ea9865db6df6)
 <br />
 
 Encrypting a new entry:
 <br />
-![SnakeGame2025-04-2520-38-47-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/44f9a3d9-b450-491b-a69c-e6deaaef4516)
+![2025-06-1020-11-06-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/2d39d988-d0cc-4157-874b-14b1cb1b1a40)
 <br />
 
 Removing an encrypted entry:
 <br />
-![SnakeGame2025-04-2520-38-47-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/44f9a3d9-b450-491b-a69c-e6deaaef4516)
+![2025-06-1020-22-07-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/95f8440c-5e89-4806-b5a6-e59307f4ab34)
 <br />
