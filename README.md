@@ -1,7 +1,7 @@
 <h1>Password Manager (WPF)</h1>
 
 <h2>Description</h2>
-A password manager application built on .Net WPF for simple data encryption. Users may catalogue and encrypt any private information to disk using the straightforward user interface. 
+A password manager application built on .NET WPF for simple data encryption. Users may catalogue and encrypt any private information to disk using the straightforward user interface. 
 This password manager uses AES-256 encryption and PBKDF2-Sha512 key derivations from C#'s cryptographic APIs.
 <br/>
 
